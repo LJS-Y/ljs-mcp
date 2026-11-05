@@ -79,10 +79,11 @@ function coverage(label: string, tokens: string[]): number {
  * 计算单包得分，同时记录命中理由
  *
  * 设计要点：
- * - 场景标签按「标签被查询覆盖的比例」打分，但阈值提高到 0.6
+ * - 场景标签按「标签被查询覆盖的比例」打分，阈值 0.6
  *   （过低会让「Element Plus 组件」这类泛标签匹配到任何含 el/select 的查询）
- * - 通用标签（如「Element Plus 组件」）额外降权——它们描述的是底座，不是产品定位
- * - 专精度加成：标签越具体（越长、别名越少），命中越可信
+ * - 不再按别名数量降权：别名多通常是「同义说法多」，恰恰说明这个标签要覆盖的口语表达广，
+ *   降权会惩罚掉最有价值的标签（2026-11-05 实测：给「树形数据」补同义词后分数从 49% 掉到 35%）
+ * - 改由「标签名是否过短过泛」单一维度降权
  */
 function scorePlugin(
   plugin: PluginEntry,
@@ -98,10 +99,10 @@ function scorePlugin(
     const labelHit = Math.max(...all.map((t) => coverage(t, tokens)))
     if (labelHit >= 0.6) {
       matchedLabels.push(sc.label)
-      // 专精度：标签越长越具体；别名太多说明是大类目，降权
+      // 专精度：标签越长越具体。短标签（≤3 字）容易泛化，轻微降权
       const lenFactor = Math.min(1, sc.label.length / 6)
-      const aliasPenalty = 1 - Math.min(0.35, (sc.aliases?.length ?? 0) * 0.025)
-      const strength = labelHit * (0.7 + 0.3 * lenFactor) * aliasPenalty
+      const shortPenalty = sc.label.length <= 3 ? 0.85 : 1
+      const strength = labelHit * (0.7 + 0.3 * lenFactor) * shortPenalty
       if (strength > bestScenario) bestScenario = strength
     }
   }

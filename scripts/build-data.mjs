@@ -27,7 +27,14 @@ const SOURCES = [
       { label: '数字处理', aliases: ['num', '金额格式化', '千分位', '数字格式化', '分位符', '金额', '补零', '万亿单位', '保留小数'] },
       { label: '判空', aliases: ['fieldCheck', '空值判断', 'isEmpty'] },
       { label: '字典', aliases: ['dict', '数据字典', '下拉选项'] },
-      { label: '树形数据', aliases: ['tree', '树结构', '菜单树', '递归'] },
+      {
+        label: '树形数据',
+        aliases: [
+          'tree', '树结构', '菜单树', '递归', 'list转tree', 'list 转 tree',
+          '扁平数组转树', '列表转树', '转成树形结构', '显示成树', '层级数据',
+          '父子结构', 'handleListTree', 'handleTreeList',
+        ],
+      },
       { label: '表单校验', aliases: ['form', '验证', 'rules'] },
       { label: '国密加密', aliases: ['SM2', 'SM3', 'SM4', 'sm-crypto', '国产加密', '密文'] },
       { label: '水印', aliases: ['watermark', '盲水印', '页面水印'] },
