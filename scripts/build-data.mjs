@@ -36,7 +36,7 @@ const SOURCES = [
       { label: 'MQTT', aliases: ['mqtt', '物联网', 'iot', '消息订阅'] },
       { label: 'HTML 转 PDF', aliases: ['pdf', '导出pdf', 'htmlPdf'] },
       { label: 'ECharts 封装', aliases: ['echarts', '图表', 'chart'] },
-      { label: 'Element Plus 组件', aliases: ['el', '组件', '业务组件'] },
+      { label: '业务组件库', aliases: ['业务组件', '封装组件'] },
     ],
   },
   {

@@ -51,26 +51,57 @@ function hitRatio(tokens: string[], text: string): number {
   return hit / tokens.length
 }
 
-/** 计算单包得分，同时记录命中理由 */
+/**
+ * 标签覆盖率：标签中有多大比例被查询覆盖
+ *
+ * 与 hitRatio 的区别：hitRatio 除以「查询词元数」（查询越长分越低），
+ * 这里除以「标签自身长度」，衡量的是「这个标签有多贴合查询」。
+ * 用于场景标签打分，避免长查询导致分数被稀释。
+ */
+function coverage(label: string, tokens: string[]): number {
+  const text = normalize(label.replace(/\s/g, ''))
+  if (!text) return 0
+
+  // 以 2 字为单位切标签，看有多少落在查询里
+  const units: string[] = []
+  for (let i = 0; i + 2 <= text.length; i++) units.push(text.slice(i, i + 2))
+  if (!units.length) units.push(text)
+
+  const q = normalize(tokens.join(' '))
+  let hit = 0
+  for (const u of units) {
+    if (q.includes(u)) hit++
+  }
+  return hit / units.length
+}
+
+/**
+ * 计算单包得分，同时记录命中理由
+ *
+ * 设计要点：
+ * - 场景标签按「标签被查询覆盖的比例」打分，但阈值提高到 0.6
+ *   （过低会让「Element Plus 组件」这类泛标签匹配到任何含 el/select 的查询）
+ * - 通用标签（如「Element Plus 组件」）额外降权——它们描述的是底座，不是产品定位
+ * - 专精度加成：标签越具体（越长、别名越少），命中越可信
+ */
 function scorePlugin(
   plugin: PluginEntry,
   tokens: string[],
 ): { score: number; reasons: string[] } {
   const reasons: string[] = []
 
-  // 第一层：场景标签（label 与 aliases 都参与）
-  // 用「最高命中强度」而非「命中标签数/总标签数」——后者会让标签少的包占便宜
+  // 第一层：场景标签
   let bestScenario = 0
   const matchedLabels: string[] = []
   for (const sc of plugin.scenarios) {
     const all = [sc.label, ...(sc.aliases ?? [])]
-    // 标签自身被查询完整覆盖的比例，以及标签在查询中出现的长度占比
-    const labelHit = Math.max(...all.map((t) => hitRatio(tokens, t)))
-    if (labelHit > 0) {
+    const labelHit = Math.max(...all.map((t) => coverage(t, tokens)))
+    if (labelHit >= 0.6) {
       matchedLabels.push(sc.label)
-      // 长标签命中比短标签更有说服力
-      const specificity = Math.min(1, sc.label.length / 6)
-      const strength = labelHit * (0.6 + 0.4 * specificity)
+      // 专精度：标签越长越具体；别名太多说明是大类目，降权
+      const lenFactor = Math.min(1, sc.label.length / 6)
+      const aliasPenalty = 1 - Math.min(0.35, (sc.aliases?.length ?? 0) * 0.025)
+      const strength = labelHit * (0.7 + 0.3 * lenFactor) * aliasPenalty
       if (strength > bestScenario) bestScenario = strength
     }
   }
