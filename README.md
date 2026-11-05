@@ -112,6 +112,20 @@ npm run test:smoke    # 26 项冒烟测试
 `npm run build:data` 依赖本地路径（见 `scripts/build-data.mjs` 的 `SOURCES`）。
 如果你只是使用者，不需要这一步 —— npm 包里已带好数据。
 
+## 维护者：改了插件文档后
+
+数据是构建时固化的。插件的 `AI.md` / `index.d.ts` / 版本号变了，必须重建并重发 npm：
+
+```bash
+npm run check:sync      # ① 检查是否不同步（有差异退出码 1）
+npm run sync:data       # ② 自动重建数据
+npm run release:check   # ③ 发布前全流程：同步检查 + 构建 + 26 项测试
+npm version patch       # ④ 升版本
+npm publish             # ⑤ 发布
+```
+
+**不做这一步的后果**：AI 读到的是过期文档，静默失效、不报错。
+
 ---
 
 ## 设计说明

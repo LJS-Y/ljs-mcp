@@ -16,6 +16,9 @@
     "build": "tsc && node scripts/copy-data.mjs",
     "dev": "tsc --watch",
     "build:data": "node scripts/build-data.mjs",
+    "check:sync": "node scripts/check-sync.mjs",
+    "sync:data": "node scripts/check-sync.mjs --fix",
+    "release:check": "node scripts/check-sync.mjs && npm run build && npm run test:smoke",
     "test:smoke": "node scripts/smoke-test.mjs",
     "start": "node dist/index.js"
   },
