@@ -1,0 +1,511 @@
+[
+  {
+    "name": "ljs-tools",
+    "version": "1.0.4",
+    "description": "Vue3 前端工具库与常用组件全家桶（基于 Element Plus）：日期/数字/判空/字典/树处理/表单限制/国密 SM2-SM4 加解密/水印/脱敏/HTML 转 PDF/WebSocket/MQTT + 9 个常用组件，适合若依等中后台项目开箱即用",
+    "scenarios": [
+      {
+        "label": "前端工具库",
+        "aliases": [
+          "工具函数",
+          "utils",
+          "工具集",
+          "常用方法"
+        ]
+      },
+      {
+        "label": "日期格式化",
+        "aliases": [
+          "date",
+          "时间格式",
+          "格式化日期"
+        ]
+      },
+      {
+        "label": "数字处理",
+        "aliases": [
+          "num",
+          "金额格式化",
+          "千分位",
+          "数字格式化",
+          "分位符",
+          "金额",
+          "补零",
+          "万亿单位",
+          "保留小数"
+        ]
+      },
+      {
+        "label": "判空",
+        "aliases": [
+          "fieldCheck",
+          "空值判断",
+          "isEmpty"
+        ]
+      },
+      {
+        "label": "字典",
+        "aliases": [
+          "dict",
+          "数据字典",
+          "下拉选项"
+        ]
+      },
+      {
+        "label": "树形数据",
+        "aliases": [
+          "tree",
+          "树结构",
+          "菜单树",
+          "递归"
+        ]
+      },
+      {
+        "label": "表单校验",
+        "aliases": [
+          "form",
+          "验证",
+          "rules"
+        ]
+      },
+      {
+        "label": "国密加密",
+        "aliases": [
+          "SM2",
+          "SM3",
+          "SM4",
+          "sm-crypto",
+          "国产加密",
+          "密文"
+        ]
+      },
+      {
+        "label": "水印",
+        "aliases": [
+          "watermark",
+          "盲水印",
+          "页面水印"
+        ]
+      },
+      {
+        "label": "数据脱敏",
+        "aliases": [
+          "脱敏",
+          "mask",
+          "手机号脱敏",
+          "身份证脱敏"
+        ]
+      },
+      {
+        "label": "WebSocket",
+        "aliases": [
+          "websocket",
+          "ws",
+          "长连接",
+          "实时消息"
+        ]
+      },
+      {
+        "label": "MQTT",
+        "aliases": [
+          "mqtt",
+          "物联网",
+          "iot",
+          "消息订阅"
+        ]
+      },
+      {
+        "label": "HTML 转 PDF",
+        "aliases": [
+          "pdf",
+          "导出pdf",
+          "htmlPdf"
+        ]
+      },
+      {
+        "label": "ECharts 封装",
+        "aliases": [
+          "echarts",
+          "图表",
+          "chart"
+        ]
+      },
+      {
+        "label": "Element Plus 组件",
+        "aliases": [
+          "el",
+          "组件",
+          "业务组件"
+        ]
+      }
+    ],
+    "keywords": [
+      "vue3",
+      "工具库",
+      "vue3 工具库",
+      "js 工具库",
+      "前端工具库",
+      "vue-utils",
+      "element-plus",
+      "若依",
+      "vue3 组件",
+      "国密",
+      "sm2",
+      "sm3",
+      "sm4",
+      "sm-crypto",
+      "mqtt",
+      "websocket",
+      "水印",
+      "html转pdf",
+      "表单验证",
+      "日期工具"
+    ],
+    "whenToUse": "- 中后台项目需要「判空、日期格式化、金额分位、字典回显、树转换、表单输入限制」这类成体系工具，且项目已用 Element Plus",
+    "whenNotToUse": "- 纯日期运算/解析（用 dayjs / date-fns）——本库只有格式化与区间偏移",
+    "install": "npm i ljs-tools",
+    "deprecated": false
+  },
+  {
+    "name": "trends-table-vue3",
+    "version": "1.2.3",
+    "description": "Vue3 表格组件（Element Plus 二次封装）：动态列配置、锁左右列、列宽自动计算、二级表头、表头显隐与导出 Excel，适合中后台管理系统复杂表格场景",
+    "scenarios": [
+      {
+        "label": "动态表格",
+        "aliases": [
+          "动态列",
+          "表格列配置",
+          "columns"
+        ]
+      },
+      {
+        "label": "表格锁定列",
+        "aliases": [
+          "固定列",
+          "锁左列",
+          "锁右列",
+          "fixed"
+        ]
+      },
+      {
+        "label": "列宽计算",
+        "aliases": [
+          "列宽",
+          "自适应宽度",
+          "宽度计算"
+        ]
+      },
+      {
+        "label": "二级表头",
+        "aliases": [
+          "多级表头",
+          "合并表头",
+          "复杂表头"
+        ]
+      },
+      {
+        "label": "表头显隐",
+        "aliases": [
+          "列显隐",
+          "列显示隐藏",
+          "列设置"
+        ]
+      },
+      {
+        "label": "表格导出 Excel",
+        "aliases": [
+          "导出excel",
+          "export",
+          "xlsx",
+          "表格下载"
+        ]
+      },
+      {
+        "label": "Element Plus 表格增强",
+        "aliases": [
+          "el-table",
+          "表格二次封装"
+        ]
+      }
+    ],
+    "keywords": [
+      "动态表格",
+      "动态列",
+      "vue3 表格",
+      "表格组件",
+      "表格",
+      "table",
+      "el-table",
+      "element-plus",
+      "el-table 二次封装",
+      "表格导出",
+      "excel导出",
+      "vue3 table",
+      "dynamic table",
+      "vue table",
+      "table component"
+    ],
+    "whenToUse": "中后台「配置化表格」——列由数据驱动（接口返回 header）、需要锁列/二级表头/表头显隐/导出 Excel 的列表页。",
+    "whenNotToUse": "- 需要单元格级自定义渲染（❌ 本组件**没有**按列名的单元格/表头插槽，只能用 `otherColumn` 自己加操作列）",
+    "install": "npm i trends-table-vue3",
+    "deprecated": false
+  },
+  {
+    "name": "energy-flow-chart",
+    "version": "2.1.3",
+    "description": "Vue3 能源流向图组件：树形拓扑总进线→支路→设备逐级展开，内置电/水/油/煤/气设备图标，适合能耗大屏、能源管理系统、电力监控等能源可视化场景",
+    "scenarios": [
+      {
+        "label": "能源流向图",
+        "aliases": [
+          "流向图",
+          "能流图",
+          "sankey"
+        ]
+      },
+      {
+        "label": "树形数据可视化",
+        "aliases": [
+          "树形图",
+          "层级流向"
+        ]
+      },
+      {
+        "label": "能耗分析",
+        "aliases": [
+          "能源管理",
+          "能耗",
+          "电力流向"
+        ]
+      }
+    ],
+    "keywords": [
+      "能源流向图",
+      "能源流线图",
+      "能流图",
+      "能耗大屏",
+      "数据大屏",
+      "能源管理",
+      "能源监控",
+      "能耗管理",
+      "电力监控",
+      "能源拓扑图",
+      "energy-flow-chart",
+      "energy flow",
+      "energy flow chart",
+      "vue3 能源组件",
+      "vue3 组件"
+    ],
+    "whenToUse": "能耗大屏 / 能源管理系统 / 电力监控——展示「总进线 → 支路 → 设备」的从属关系与节点读数、点击逐级展开的能源流向图。",
+    "whenNotToUse": "- 表达流量分配比例（用 ECharts 桑基图，数值映射带宽）",
+    "install": "npm i energy-flow-chart",
+    "deprecated": false
+  },
+  {
+    "name": "ljs-s-timeline",
+    "version": "2.0.3",
+    "description": "Vue3 蛇形时间轴组件：S 形时间线布局，节点与连线样式可配置，适合流程步骤、里程碑、审批轨迹展示",
+    "scenarios": [
+      {
+        "label": "蛇形时间轴",
+        "aliases": [
+          "S形时间轴",
+          "蜿蜒时间轴",
+          "时间线"
+        ]
+      },
+      {
+        "label": "发展历程",
+        "aliases": [
+          "大事记",
+          "里程碑",
+          "历史沿革"
+        ]
+      },
+      {
+        "label": "流程节点展示",
+        "aliases": [
+          "步骤条",
+          "进度节点"
+        ]
+      }
+    ],
+    "keywords": [
+      "时间线",
+      "蛇形",
+      "timeline",
+      "蛇形时间轴",
+      "时间轴",
+      "时间轴组件",
+      "S形时间线",
+      "蛇形时间线",
+      "snake timeline",
+      "vue3 timeline",
+      "vue3 时间轴",
+      "s-timeline",
+      "timeline vue3"
+    ],
+    "whenToUse": "流程步骤、里程碑、审批轨迹等「时间轴/步骤条」展示，需要蛇形折返布局节省纵向空间。",
+    "whenNotToUse": "需要交互（点击节点等，无任何事件）；数据频繁变动的实时场景（每次全量重排）。",
+    "install": "npm i ljs-s-timeline",
+    "deprecated": false
+  },
+  {
+    "name": "ball-swiper",
+    "version": "1.2.3",
+    "description": "Vue3 球面 3D 轮播组件：卡片沿球面排布、鼠标拖拽旋转、箭头翻页，也可退化为平面排布，适合首页头图、产品展廊、作品集等视觉焦点场景",
+    "scenarios": [
+      {
+        "label": "球面轮播",
+        "aliases": [
+          "3D轮播",
+          "球形轮播",
+          "tag球"
+        ]
+      },
+      {
+        "label": "3D 标签云",
+        "aliases": [
+          "3D标签",
+          "sphere",
+          "球体"
+        ]
+      },
+      {
+        "label": "产品展示",
+        "aliases": [
+          "商品球",
+          "立体展示"
+        ]
+      }
+    ],
+    "keywords": [
+      "球面轮播",
+      "球形轮播",
+      "3D轮播",
+      "轮播",
+      "轮播图",
+      "轮播组件",
+      "球面",
+      "3d",
+      "swiper",
+      "ball swiper",
+      "3d carousel",
+      "carousel vue3",
+      "vue3 carousel",
+      "sphere carousel"
+    ],
+    "whenToUse": "大屏/展示页的头像墙、商品墙、设备卡片等「有仪式感」的轮播展示。",
+    "whenNotToUse": "移动端触摸交互（**只支持鼠标拖拽**，无 touch 事件）；需要自动播放（无 autoplay）；数据会频繁变动（无增量更新能力）；SSR 渲染（内部依赖 DOM 测量，见已知坑）。",
+    "install": "npm i ball-swiper",
+    "deprecated": false
+  },
+  {
+    "name": "big-select",
+    "version": "1.0.3",
+    "description": "el-select 大数据量优化：默认限量展示 + 自定义检索 + 回车检索，解决下拉卡顿（Element Plus / Vue3）",
+    "scenarios": [
+      {
+        "label": "大数据量下拉",
+        "aliases": [
+          "卡顿下拉",
+          "万条数据",
+          "选择器性能"
+        ]
+      },
+      {
+        "label": "下拉远程搜索",
+        "aliases": [
+          "远程检索",
+          "filter-method",
+          "搜索下拉"
+        ]
+      },
+      {
+        "label": "Element Plus Select 优化",
+        "aliases": [
+          "el-select",
+          "下拉优化"
+        ]
+      }
+    ],
+    "keywords": [
+      "下拉框",
+      "select",
+      "大数据",
+      "大数据量",
+      "el-select",
+      "自定义检索",
+      "前100展示",
+      "el-select 大数据",
+      "大数据下拉",
+      "下拉框卡顿",
+      "select 卡顿",
+      "回车检索",
+      "big-select",
+      "large data select",
+      "vue3 select"
+    ],
+    "whenToUse": "下拉数据几百~几千条、需要「先展示少量 + 输入关键字回车再检索」的表单场景（如选择企业/单位）。",
+    "whenNotToUse": "数据量小（直接用 el-select）；需要远程分页搜索（本组件是本地数组过滤）；需要自定义下拉项模板（无插槽）。",
+    "install": "npm i big-select",
+    "deprecated": false
+  },
+  {
+    "name": "moving-numbers-vue3",
+    "version": "2.0.4",
+    "description": "大屏数字滚动组件：数字平滑滚动、翻牌动画，适合数据大屏、驾驶舱、统计面板（Vue3）",
+    "scenarios": [
+      {
+        "label": "大屏数字滚动",
+        "aliases": [
+          "数字跳动",
+          "count-up",
+          "数字动画"
+        ]
+      },
+      {
+        "label": "数据看板",
+        "aliases": [
+          "驾驶舱",
+          "统计面板",
+          "大屏"
+        ]
+      },
+      {
+        "label": "指标动态展示",
+        "aliases": [
+          "金额跳动",
+          "总量滚动"
+        ]
+      }
+    ],
+    "keywords": [
+      "number",
+      "数字",
+      "动态",
+      "运动",
+      "会动的数字",
+      "大屏",
+      "大屏数字",
+      "数字滚动",
+      "数字动画",
+      "数字翻滚",
+      "大屏组件",
+      "number animation",
+      "count up",
+      "vue3 number",
+      "vue3 大屏",
+      "odometer",
+      "rolling number",
+      "digit roll",
+      "翻牌组件",
+      "数字翻牌"
+    ],
+    "whenToUse": "大屏/驾驶舱的数字面板（金额、总量、指标跳动）。",
+    "whenNotToUse": "需要精确数字格式化（用 ljs-tools 的 $LJSnum）；需要事件/交互（纯展示组件，无 emits/slots）；SSR。",
+    "install": "npm i moving-numbers-vue3",
+    "deprecated": false
+  }
+]
