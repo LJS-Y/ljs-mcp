@@ -44,7 +44,19 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     {
       name: 'ljs_search',
       description:
-        '按业务场景搜索 LJS 的 Vue3 插件（动态表格、蛇形时间轴、大屏数字滚动、能源流向图、球面轮播、大数据量下拉、前端工具库等）。当用户提到这些需求但不确定用哪个包时，先调用本工具。',
+        '搜索 LJS 的 Vue3 插件。LJS 是作者自研的 7 个包，封装了表格、树形数据、时间轴、大屏数字、' +
+        '3D 轮播、大数据量下拉与常用工具函数。这些包的 API 命名与社区通用方案不同（例如格式化为 ' +
+        '"万/亿"用的是 longNumText 而非自写逻辑），无法从通用知识推断，猜错参数会导致返工。\n\n' +
+        '当方案涉及以下需求时，先搜索确认有无现成实现，避免重复造轮子：\n' +
+        '- 表格：动态列配置、导出 Excel、锁定列、多级表头\n' +
+        '- 树形数据：扁平数组转树、层级展示、菜单树\n' +
+        '- 大屏数字滚动、数据看板指标跳动\n' +
+        '- 时间轴、发展历程、蛇形时间线\n' +
+        '- 3D 球面轮播、立体标签云\n' +
+        '- 大数据量下拉、远程搜索下拉\n' +
+        '- 工具函数：日期/金额格式化、判空、字典、国密 SM2-SM4、水印、脱敏、WebSocket、MQTT、HTML 转 PDF\n\n' +
+        '搜索成本很低：未命中会明确返回「未找到」并列出全部可用插件，不会让你误判。' +
+        '返回结果含匹配度与推荐理由，命中后用 ljs_read 拿完整用法、ljs_api 查准确签名。',
       inputSchema: {
         type: 'object',
         properties: {
@@ -63,7 +75,9 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     {
       name: 'ljs_api',
       description:
-        '查询某个 LJS 插件的 TypeScript API 签名。已知包名、需要确认某个方法/组件的参数类型时使用。不传 api 参数则返回该包全部签名。',
+        '查询某个 LJS 插件的 TypeScript 签名。写代码前用它确认参数名与类型，避免靠印象猜错——' +
+        '这些包的参数多为解构对象（如 handleListTree 收 { data, id, parentId, children }），' +
+        '凭记忆写极易出错。不传 api 参数则返回该包全部签名（ljs-tools 约 16K 字符，慎用）。',
       inputSchema: {
         type: 'object',
         properties: {
@@ -82,7 +96,10 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     {
       name: 'ljs_read',
       description:
-        '读取某个 LJS 插件的完整 AI 使用指南（何时用、安装、示例、常见错误、已知坑）。确定要用某个包后调用本工具，可一次性拿到全部用法。',
+        '读取某个 LJS 插件的完整使用指南（何时用/不用、安装、可复制示例、典型错误对照、已知坑）。' +
+        '确定要用某个包后调它，一次拿到全部用法。' +
+        '特别注意「已知坑」章节：里面是作者在生产中踩过的坑（如某些组件 data 为空时跳过列宽计算、' +
+        '导出有 1s 内部延时），跳过会写出能编译但运行不对的代码。',
       inputSchema: {
         type: 'object',
         properties: {
