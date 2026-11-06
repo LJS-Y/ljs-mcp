@@ -1,7 +1,7 @@
 {
   "name": "ljs-mcp",
   "version": "0.1.0",
-  "description": "LJS 插件 MCP server：让 AI 编码助手按场景找到并使用 LJS 的 Vue3 插件",
+  "description": "LJS 插件 MCP server：检索 7 个 Vue3 插件的用法与签名，供 AI 编码助手按需查询",
   "type": "module",
   "bin": {
     "ljs-mcp": "./dist/index.js"
